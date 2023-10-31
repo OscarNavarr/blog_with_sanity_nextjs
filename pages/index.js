@@ -25,6 +25,7 @@ export async function getServerSideProps() {
 
 export default function Home({ allPostsData, publications }) {
 
+  console.log(publications[0]);
 
   return (
     <Layout home>
@@ -32,11 +33,13 @@ export default function Home({ allPostsData, publications }) {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>[Your Self Introduction]</p>
+        <p>{
+          publications[0] ? publications[0].autor : "no hay publicaciones"
+        }</p>
         
         {
           publications[0] ? <p>{publications[0].title}</p> : <p>no hay publicaciones</p>
-        }*
+        }
         <p>
           (This is a sample website - you’ll be building a site like this in{' '}
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
